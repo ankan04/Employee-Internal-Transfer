@@ -1,0 +1,15 @@
+# Keeps build artefacts, secrets, and heavy binaries out of agent context.
+# See INT_SDD_Standard.md §15, §17.
+
+node_modules/
+dist/
+build/
+coverage/
+*.log
+.env
+.env.*
+*.pem
+*.key
+**/*.min.js
+**/*.lock
+.git/

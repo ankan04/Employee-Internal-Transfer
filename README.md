@@ -8,6 +8,7 @@ was approved at Gate 1 and in the technical plan?
 
 | Folder | Contents |
 |---|---|
+| `.agent/` | The agent control plane the work was produced under — always-on rules (`int-standards.md`, `.agentignore`, `auto-log.md`) and the reusable `/code-review`, `/generate-tests`, `/generate-plan` workflows. Included so the constraints the implementation was built under are reviewable, not just its output. |
 | `.ai-context/discovery/`, `BRD.md` | The original requirement and its discovery analysis — context, not under review here |
 | `.ai-context/specs/` | The specification (with acceptance criteria and API contract) that this implementation is checked against |
 | `.ai-context/test_cases/` | Spec-derived and QA-expanded test cases |
