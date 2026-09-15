@@ -1,0 +1,28 @@
+{
+  "name": "transfer360-transfer-service",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Employee Internal Transfer Digital Journey — implements employee-internal-transfer.T03, T06, T07, T11, T12, T13, T15, T16, T18, T19",
+  "scripts": {
+    "test": "jest --runInBand",
+    "migrate": "ts-node scripts/migrate.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "jose": "^5.9.6",
+    "pg": "^8.13.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "@types/pg": "^8.11.10",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
