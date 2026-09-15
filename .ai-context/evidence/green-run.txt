@@ -1,0 +1,12 @@
+PASS test/persistence/transferRequest.schema.test.ts (8.779 s)
+PASS test/http/api.test.ts (10.78 s)
+PASS test/domain/aggregate.test.ts
+PASS test/domain/authorization.test.ts
+PASS test/domain/workflow.test.ts
+PASS test/domain/validation.test.ts
+
+Test Suites: 6 passed, 6 total
+Tests:       67 passed, 67 total
+Snapshots:   0 total
+Time:        26.028 s, estimated 28 s
+Ran all test suites.

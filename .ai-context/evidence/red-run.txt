@@ -1,0 +1,194 @@
+FAIL test/http/api.test.ts
+  ● Test suite failed to run
+
+    [96mtest/http/api.test.ts[0m:[93m11[0m:[93m27[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/http/app' or its corresponding type declarations.
+
+    [7m11[0m import { createApp } from '../../src/http/app';
+    [7m  [0m [91m                          ~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m14[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/workflow/stateMachine' or its corresponding type declarations.
+
+    [7m14[0m import { firstPendingState } from '../../src/domain/workflow/stateMachine';
+    [7m  [0m [91m                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m108[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m108[0m     const res = await submit(id, tokA).expect(200);
+    [7m   [0m [91m                                       ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m115[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m115[0m     await submit(id, tokA).expect(200);
+    [7m   [0m [91m                           ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m128[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m128[0m     const res = await submit(id, tokA).expect(422);
+    [7m   [0m [91m                                       ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m136[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m136[0m     await submit(id, tokA).expect(200);
+    [7m   [0m [91m                           ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m141[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m141[0m     const res = await submit(id, tokA).expect(422);
+    [7m   [0m [91m                                       ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m147[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m147[0m     await submit(id, tokA).expect(200);
+    [7m   [0m [91m                           ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m148[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m148[0m     await submit(id, tokA).expect(409);
+    [7m   [0m [91m                           ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m153[0m:[93m28[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m153[0m     await submit(id, tokB).expect(404);
+    [7m   [0m [91m                           ~~~~~~[0m
+    [96mtest/http/api.test.ts[0m:[93m158[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'expect' does not exist on type 'Promise<Response>'.
+
+    [7m158[0m     const res = await submit(id, tokA).expect(200);
+    [7m   [0m [91m                                       ~~~~~~[0m
+
+FAIL test/domain/validation.test.ts
+  ● Test suite failed to run
+
+    [96mtest/domain/validation.test.ts[0m:[93m7[0m:[93m40[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/validation/engine' or its corresponding type declarations.
+
+    [7m7[0m import { ValidationEngine, Rule } from '../../src/domain/validation/engine';
+    [7m [0m [91m                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/domain/validation.test.ts[0m:[93m8[0m:[93m23[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/validation/rules' or its corresponding type declarations.
+
+    [7m8[0m import { RULES } from '../../src/domain/validation/rules';
+    [7m [0m [91m                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/domain/validation.test.ts[0m:[93m9[0m:[93m28[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/ports/masterDataPort' or its corresponding type declarations.
+
+    [7m9[0m import { MasterData } from '../../src/ports/masterDataPort';
+    [7m [0m [91m                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/domain/validation.test.ts[0m:[93m39[0m:[93m36[0m - [91merror[0m[90m TS7006: [0mParameter 'f' implicitly has an 'any' type.
+
+    [7m39[0m     const fields = r.failures.map((f) => f.field).sort();
+    [7m  [0m [91m                                   ~[0m
+    [96mtest/domain/validation.test.ts[0m:[93m41[0m:[93m30[0m - [91merror[0m[90m TS7006: [0mParameter 'f' implicitly has an 'any' type.
+
+    [7m41[0m     expect(r.failures.every((f) => f.rule === 'VR01')).toBe(true);
+    [7m  [0m [91m                             ~[0m
+    [96mtest/domain/validation.test.ts[0m:[93m47[0m:[93m29[0m - [91merror[0m[90m TS7006: [0mParameter 'f' implicitly has an 'any' type.
+
+    [7m47[0m     expect(r.failures.some((f) => f.rule === 'VRX')).toBe(true);
+    [7m  [0m [91m                            ~[0m
+    [96mtest/domain/validation.test.ts[0m:[93m122[0m:[93m24[0m - [91merror[0m[90m TS7006: [0mParameter 'r' implicitly has an 'any' type.
+
+    [7m122[0m     expect(RULES.some((r) => r.id === 'VR03')).toBe(false);
+    [7m   [0m [91m                       ~[0m
+    [96mtest/domain/validation.test.ts[0m:[93m125[0m:[93m24[0m - [91merror[0m[90m TS7006: [0mParameter 'r' implicitly has an 'any' type.
+
+    [7m125[0m     expect(RULES.some((r) => r.id.startsWith('VR-PAYROLL'))).toBe(false);
+    [7m   [0m [91m                       ~[0m
+
+FAIL test/domain/workflow.test.ts
+  ● Test suite failed to run
+
+    [96mtest/domain/workflow.test.ts[0m:[93m18[0m:[93m8[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/workflow/stateMachine' or its corresponding type declarations.
+
+    [7m18[0m } from '../../src/domain/workflow/stateMachine';
+    [7m  [0m [91m       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/domain/workflow.test.ts[0m:[93m37[0m:[93m49[0m - [91merror[0m[90m TS7006: [0mParameter 't' implicitly has an 'any' type.
+
+    [7m37[0m     const approvalTargets = TRANSITIONS.filter((t) => t.action === 'DECIDE');
+    [7m  [0m [91m                                                ~[0m
+    [96mtest/domain/workflow.test.ts[0m:[93m85[0m:[93m44[0m - [91merror[0m[90m TS7006: [0mParameter 't' implicitly has an 'any' type.
+
+    [7m85[0m         const declared = TRANSITIONS.some((t) => t.from === from && t.action === action);
+    [7m  [0m [91m                                           ~[0m
+    [96mtest/domain/workflow.test.ts[0m:[93m98[0m:[93m40[0m - [91merror[0m[90m TS7006: [0mParameter 't' implicitly has an 'any' type.
+
+    [7m98[0m     const declared = TRANSITIONS.find((t) => t.from === 'DRAFT' && t.action === 'SUBMIT');
+    [7m  [0m [91m                                       ~[0m
+
+FAIL test/persistence/transferRequest.schema.test.ts
+  ● transfer_request schema › .UT13 — a second non-terminal request for the same subject is rejected
+
+    error: relation "transfer_request" does not exist
+
+      17 | afterAll(async () => { await pool.end(); });
+      18 |
+    > 19 | beforeEach(async () => { await pool.query('TRUNCATE transfer_request CASCADE;'); });
+         |                          ^
+      20 |
+      21 | async function insert(status: string, subject = SUBJECT_A) {
+      22 |   return pool.query(
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.<anonymous> (test/persistence/transferRequest.schema.test.ts:19:26)
+
+  ● transfer_request schema › .UT14/.UT15 — a new request is allowed once the prior one is terminal
+
+    error: relation "transfer_request" does not exist
+
+      17 | afterAll(async () => { await pool.end(); });
+      18 |
+    > 19 | beforeEach(async () => { await pool.query('TRUNCATE transfer_request CASCADE;'); });
+         |                          ^
+      20 |
+      21 | async function insert(status: string, subject = SUBJECT_A) {
+      22 |   return pool.query(
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.<anonymous> (test/persistence/transferRequest.schema.test.ts:19:26)
+
+  ● transfer_request schema › .UT90 — two genuinely concurrent inserts for one subject produce exactly one row
+
+    error: relation "transfer_request" does not exist
+
+      17 | afterAll(async () => { await pool.end(); });
+      18 |
+    > 19 | beforeEach(async () => { await pool.query('TRUNCATE transfer_request CASCADE;'); });
+         |                          ^
+      20 |
+      21 | async function insert(status: string, subject = SUBJECT_A) {
+      22 |   return pool.query(
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.<anonymous> (test/persistence/transferRequest.schema.test.ts:19:26)
+
+  ● transfer_request schema › position_id carries no foreign key — the position model is gated on C3
+
+    error: relation "transfer_request" does not exist
+
+      17 | afterAll(async () => { await pool.end(); });
+      18 |
+    > 19 | beforeEach(async () => { await pool.query('TRUNCATE transfer_request CASCADE;'); });
+         |                          ^
+      20 |
+      21 | async function insert(status: string, subject = SUBJECT_A) {
+      22 |   return pool.query(
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.<anonymous> (test/persistence/transferRequest.schema.test.ts:19:26)
+
+FAIL test/domain/authorization.test.ts
+  ● Test suite failed to run
+
+    [96mtest/domain/authorization.test.ts[0m:[93m7[0m:[93m39[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/authorization/canAccess' or its corresponding type declarations.
+
+    [7m7[0m import { canAccess, Visibility } from '../../src/domain/authorization/canAccess';
+    [7m [0m [91m                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/domain/authorization.test.ts[0m:[93m8[0m:[93m33[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/request/transferRequest' or its corresponding type declarations.
+
+    [7m8[0m import { TransferRequest } from '../../src/domain/request/transferRequest';
+    [7m [0m [91m                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+FAIL test/domain/aggregate.test.ts
+  ● Test suite failed to run
+
+    [96mtest/domain/aggregate.test.ts[0m:[93m7[0m:[93m33[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/request/transferRequest' or its corresponding type declarations.
+
+    [7m7[0m import { TransferRequest } from '../../src/domain/request/transferRequest';
+    [7m [0m [91m                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtest/domain/aggregate.test.ts[0m:[93m8[0m:[93m35[0m - [91merror[0m[90m TS2307: [0mCannot find module '../../src/domain/workflow/stateMachine' or its corresponding type declarations.
+
+    [7m8[0m import { firstPendingState } from '../../src/domain/workflow/stateMachine';
+    [7m [0m [91m                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+Test Suites: 6 failed, 6 total
+Tests:       4 failed, 4 total
+Snapshots:   0 total
+Time:        18.877 s
+Ran all test suites.

@@ -1,0 +1,38 @@
+PASS test/http/api.test.ts (21.909 s)
+PASS test/persistence/transferRequest.schema.test.ts
+PASS test/domain/aggregate.test.ts
+PASS test/domain/authorization.test.ts
+PASS test/domain/validation.test.ts
+PASS test/domain/workflow.test.ts
+-------------------------------|---------|----------|---------|---------|-------------------
+File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------------|---------|----------|---------|---------|-------------------
+All files                      |   94.73 |    79.79 |     100 |   97.02 |                   
+ application                   |   92.85 |      100 |     100 |    92.3 |                   
+  submitRequest.ts             |   92.85 |      100 |     100 |    92.3 | 58-59             
+ domain/authorization          |      90 |    83.33 |     100 |     100 |                   
+  canAccess.ts                 |      90 |    83.33 |     100 |     100 | 29                
+ domain/request                |     100 |      100 |     100 |     100 |                   
+  transferRequest.ts           |     100 |      100 |     100 |     100 |                   
+ domain/validation             |     100 |    95.83 |     100 |     100 |                   
+  engine.ts                    |     100 |      100 |     100 |     100 |                   
+  rules.ts                     |     100 |    94.73 |     100 |     100 | 35                
+ domain/workflow               |      92 |    71.42 |     100 |     100 |                   
+  stateMachine.ts              |      92 |    71.42 |     100 |     100 | 78-84             
+ http                          |   90.47 |       75 |     100 |   93.33 |                   
+  app.ts                       |   90.47 |       75 |     100 |   93.33 | 68,115-117        
+ http/middleware               |    97.5 |    76.19 |     100 |     100 |                   
+  auth.ts                      |     100 |    85.71 |     100 |     100 | 30                
+  correlation.ts               |     100 |       50 |     100 |     100 | 7                 
+  idempotency.ts               |      95 |       80 |     100 |     100 | 13,32             
+ persistence                   |   93.54 |    66.66 |     100 |   96.42 |                   
+  auditWriter.ts               |     100 |      100 |     100 |     100 |                   
+  inMemoryMasterData.ts        |     100 |      100 |     100 |     100 |                   
+  transferRequestRepository.ts |      92 |    66.66 |     100 |   95.45 | 46                
+-------------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 6 passed, 6 total
+Tests:       67 passed, 67 total
+Snapshots:   0 total
+Time:        29.499 s
+Ran all test suites.
