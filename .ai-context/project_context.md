@@ -45,9 +45,22 @@ See `.ai-context/architecture.md` — currently unpopulated pending the plan.
 
 ## Tech Stack
 
-**Undetermined.** Logged as discovery OQ58. This blocks `constitution.md`'s
-Testing Discipline section and every implementation task; it does not block
-specification. Decide before the plan stage.
+**Node.js/Express (backend), React (frontend), PostgreSQL (system of record),
+Redis (cache/queue only, never system of record), Jest.** Ratified in
+`constitution.md` v1.0 (2026-08-30) §3. This page previously said
+"Undetermined" after the constitution had already fixed the stack — a stale
+copy the Gate 0 review flagged as a direct contradiction between the two
+files. `constitution.md` is the authoritative source; this line is kept in
+sync with it, not the other way round.
+
+## Reviewer Roster
+
+Named reviewers for the gates on this feature (§12, §27 — reviewer ≠ author).
+
+| Name | Role | Scope |
+|---|---|---|
+| Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | Assigned Gate 0 (BRD) reviewer |
+| Soumyadeep | INT Delivery Leadership | Gate 1 (spec) reviewer — see `.ai-context/reviews/employee-internal-transfer.gate1-second-opinion.md` |
 
 ## Where To Start
 

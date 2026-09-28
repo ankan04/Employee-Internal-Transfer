@@ -482,7 +482,7 @@ Gate 1 discussion item, not a licence to invent.
 
 | ID | Question | Type | Owner |
 |---|---|---|---|
-| OQ58 | What is the implementation technology stack? Undetermined; required before `constitution.md` can specify testing discipline and before any implementation task. | T | Architecture |
+| OQ58 | What is the implementation technology stack? **Resolved 2026-08-30** — `constitution.md` v1.0 §3 ratifies Node.js/Express, React, PostgreSQL, Redis, Jest. This row was left stale after ratification (flagged in the 2026-09-28 governance audit); `project_context.md` and `constitution.md` are now reconciled. | T | Architecture |
 | OQ59 | Are the HRMS, payroll, IAM/ITSM and facilities integrations available for real integration, or to be stubbed at a contract boundary? | T | Architecture |
 | OQ60 | What provides authentication and role claims, and is an existing RBAC model available to reuse? | T | Architecture |
 | OQ61 | Does an approved workflow/BPM engine exist to reuse, or is workflow state to be held in-service? | T | Architecture |

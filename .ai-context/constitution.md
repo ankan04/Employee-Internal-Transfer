@@ -11,6 +11,21 @@ individual specs.
 
 ---
 
+## Reviewer Roster
+
+Named here because the Gate 0 review found neither this file nor
+`project_context.md` carried it, which meant there was no roster to check
+a review's reviewer ≠ author against (§12, §27). Kept in sync with
+`project_context.md#reviewer-roster` — that copy is authoritative if the
+two ever disagree.
+
+| Name | Role | Scope |
+|---|---|---|
+| Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | Assigned Gate 0 reviewer |
+| Soumyadeep | INT Delivery Leadership | Gate 1 reviewer |
+
+---
+
 ## 0. Authority Boundary — What This Document May and May Not Decide
 
 This constitution binds **technical** conduct. It has no authority over
@@ -29,9 +44,16 @@ business policy, and does not create it by implication.
    business outcome, implementation stops and the question escalates.
 3. **Unresolved items stay unresolved here.** As of ratification, approval
    sequencing, eligibility criteria, requisition-versus-role-type selection and
-   downstream execution timing are open business decisions recorded in
-   `.ai-context/discovery/employee-internal-transfer.discovery.md`. This
-   document deliberately takes no position on any of them.
+   downstream execution timing were open business decisions recorded in
+   `.ai-context/discovery/employee-internal-transfer.discovery.md`. **Update
+   (2026-09-28, Gate 0 review):** `BRD.md` v2 has since recorded actual HR
+   Operations decisions for approval sequencing (`BRD-003`) and downstream
+   execution timing (`BRD-005`); eligibility criteria are decided (`BRD-002`).
+   Requisition-versus-role-type selection (OQ16) remains genuinely open. This
+   document still takes no position on any of them itself — the decisions
+   live in the BRD, not here — but the *unresolved* list above is stale for
+   three of its four items and is corrected by this note rather than silently
+   edited, consistent with how this constitution treats its own errors (§0.4).
 4. Any rule in this constitution that is found to encode a business assumption
    is a defect in this constitution and must be amended, not worked around.
 

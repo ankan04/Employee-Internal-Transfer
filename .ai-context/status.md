@@ -1,10 +1,10 @@
 # Project Status Board
-_Last updated: 2026-08-30_
+_Last updated: 2026-09-28_
 
 ## Active Specs
 | Spec ID | Title | Status | Owner | Last Updated | Notes |
 |---|---|---|---|---|---|
-| employee-internal-transfer | Employee Internal Transfer Digital Journey | **Gate 2: CHANGES REQUESTED — RELEASE BLOCKED** | A. Gupta | 2026-08-30 | All 10 deliverables complete + final audit + walkthrough. Spec v1.3 (55 AC), 136 tests, 49 tasks, 84 prompts, 22 commits. Slice: 14 tasks, 67 tests GREEN. **26 findings — 17 closed, 9 open. 15 remediation actions, all open.** Blocked on SEC-01, SEC-02, plus C5, C11, C12. |
+| employee-internal-transfer | Employee Internal Transfer Digital Journey | **Gate 0: PENDING (submitted) · Gate 1: CHANGES REQUESTED (corrected from self-recorded "CONDITIONAL PASS") · Gate 2: CHANGES REQUESTED — RELEASE BLOCKED** | A. Gupta | 2026-09-28 | All 10 deliverables complete + final audit + walkthrough. Spec v1.3 (55 AC), 136 tests, 49 tasks, 84 prompts, 22 commits. Slice: 14 tasks, 67 tests GREEN. **26 findings — 17 closed, 9 open. 15 remediation actions, all open.** Blocked on SEC-01, SEC-02, plus C3, C4, C5, C6, C10, C11, C12. BRD v2 closes 28 of 44 open business decisions and lifts the *business* half of C1, C2, C8, C9 — formal Gate 1 re-confirmation still required before those conditions are actually lifted. |
 
 ## Daily Execution Log
 
@@ -266,3 +266,104 @@ _Last updated: 2026-08-30_
   67 tests GREEN · 26 findings (17 closed / 9 open) · 15 remediation actions,
   all open · 4 constitution-axis violations · Gate 2 CHANGES REQUESTED ·
   RELEASE BLOCKED.**
+
+### 2026-09-28 — Governance audit remediation
+
+**An external governance audit of Gates 0 and 1 found the following, all
+confirmed against this repository rather than disputed:**
+1. **Gate 0 never happened.** No artefact existed in `.ai-context/reviews/`
+   for BRD approval; BRD, spec, test cases and plans were drafted in one
+   continuous run with no approval checkpoint between them.
+2. **The BRD was not a BRD.** 35 lines, one requirement, pointing to
+   discovery's 61 open questions (44 business-policy) instead of stating
+   decisions. No one had approved it, so the project had no agreed
+   requirement baseline.
+3. **The reviewer roster was missing** from both `constitution.md` and
+   `project_context.md` — no recorded list of who the reviewer ≠ author
+   check (§12, §27) could be checked against.
+4. **`project_context.md` and `constitution.md` contradicted each other** on
+   tech stack — "Undetermined" vs. a fully ratified Node/Express/React/
+   PostgreSQL/Redis/Jest stack.
+5. **Gate 1 was self-reviewed** (`status.md`, 2026-08-30 entries): Criterion 1
+   (reviewer ≠ author) recorded NOT MET, then an outcome — "CONDITIONAL
+   PASS" — that INT_SDD_Standard.md does not define was recorded and mapped
+   to "Approved v1.0" anyway. The standard has exactly two outcomes:
+   Approved or Changes Requested.
+6. **The spec had absorbed business decisions it shouldn't have** — eligibility
+   (OQ09), approval workflow (OQ01), execution timing (OQ40) were still open
+   in discovery, and the spec filled the gaps with author-defined gating
+   conditions C1–C10 instead of a BRD decision.
+
+**Remediation taken, in order:**
+
+- **`BRD.md` revised to v2.** BRD-002 through BRD-007 added, each restating
+  an actual decision — sourced from a comprehensive BRD draft supplied for
+  this revision — and citing the discovery open-question ID(s) it closes.
+  **28 of the 44 business-policy open questions are now closed**; every item
+  not explicitly closed is listed as still open, per entry — this revision
+  does not claim more is settled than is. `BRD.md`'s own revision note flags
+  this explicitly.
+- **`decision-log.md` revised to v1.2.** 8 BLOCKING dispositions
+  (OQ01, OQ03, OQ09, OQ12, OQ13, OQ35, OQ36, OQ40) and 2 DEFERRED
+  dispositions (OQ54, OQ56) moved to CONFIRMED, each citing the BRD entry
+  that now backs it. OQ25 stays BLOCKING — its SLA/escalation half is
+  CONFIRMED (`BRD-004`), but it is jointly gated with OQ29 (delegation,
+  still open) under C5. A further 12 rows already ASSUMPTION ACCEPTED or
+  CONFIRMED gain an explicit BRD citation, closing the *provenance* gap
+  (author's assumption → HR Operations' decision) without changing scope.
+- **`spec.md` updated.** Status section corrected — Gate 1's outcome is
+  recorded as Changes Requested (see below), not Approved, and a table maps
+  each gate condition to its BRD v2 status: **C1, C2, C8, C9 now have a real
+  business decision behind them** (previously-provisional PD02, PD03, PD06
+  are CONFIRMED); **C7 is partially addressed** (OQ32 closed, OQ34 open);
+  **C3, C4, C6, C10, C11, C12 are unchanged.** This does not self-lift any
+  condition — lifting a condition that was provisional on a business decision
+  is exactly the kind of change that must go back through Gate 1, not be
+  accepted silently by the spec that was blocked on it.
+- **`project_context.md` and `constitution.md` reconciled.** Tech stack now
+  reads Node/Express/React/PostgreSQL/Redis/Jest in both, citing
+  `constitution.md` §3 as the authoritative source, with the prior
+  contradiction noted rather than silently deleted. Both files now carry a
+  Reviewer Roster: Supratim Jetty (assigned Gate 0 reviewer), Soumyadeep
+  (Gate 1 reviewer) — the two actual reviewers, not everyone copied on an
+  email.
+- **Gate 0 artefact created**, `.ai-context/reviews/employee-internal-transfer.gate0.md`
+  — status **PENDING**, outcome intentionally left blank. Creating this file
+  does not self-approve Gate 0; it records what a Gate 0 review would assess
+  and waits for Supratim Jetty's actual sign-off, requested 2026-09-28.
+- **Gate 1 second-opinion review tracked**,
+  `.ai-context/reviews/employee-internal-transfer.gate1-second-opinion.md` —
+  a summary of `Gate1_Review_Ankan_Final.docx` (Soumyadeep, INT Delivery
+  Leadership, 08 September 2026), a genuinely independent, named,
+  non-author review. It substantively answers the "you reviewed your own
+  spec" finding for the development gate, re-deriving (not rubber-stamping)
+  that C1, C2, C3 and C5 were blocking at the time it was written, and
+  adding one new finding (OQ47 should join C1). **It does not fix the
+  terminology problem** — it also records "APPROVED WITH CONDITIONS" /
+  "concurs with CONDITIONAL PASS," neither of which the standard defines —
+  and it explicitly states C12 (independent peer review) is only **partially
+  satisfied**, not closed: "a named peer reviewer who is not the author
+  should provide the remaining confirmation before production
+  implementation."
+- **Gate 1's recorded outcome corrected.** Given the standard's binary
+  model, and given that even the independent second-opinion review leaves
+  C3, C5 and C12 open, Gate 1 is now recorded as **Changes Requested** —
+  not Approved, not "Conditional Pass." This is a real status downgrade from
+  what the spec previously claimed, not a wording fix: it means the plan,
+  tasks, RED/GREEN tests and vertical-slice code that followed the original
+  self-recorded pass were built without a valid Gate 1 approval. That work
+  is not being discarded — a second, genuinely independent review has since
+  examined the same spec and reached the same substantive conclusions on
+  what's blocking — but the record now says what actually happened instead
+  of what the process required to have happened.
+
+**Not yet done, on purpose:**
+- Gate 0 has not actually been approved — it is submitted and pending
+  Supratim Jetty's review.
+- Gate 1's conditions that BRD v2 now has a business decision for (C1, C2,
+  C8, C9) have not been formally re-confirmed by a reviewer; the spec notes
+  this and does not treat them as lifted.
+- `architecture.md`, ADRs, the tech-stack decision's downstream implications,
+  and the nine still-open release/security findings from the Gate 2 review
+  are untouched by this pass — this remediation is scoped to the Gate 0/1
+  governance audit, not a re-run of Gate 2.

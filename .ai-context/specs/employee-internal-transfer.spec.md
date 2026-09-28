@@ -8,13 +8,41 @@
 `employee-internal-transfer`
 
 ## Status
-**Approved v1.3** — Gate 1 CONDITIONAL PASS (2026-08-30); Gate 1, plan-review and task-decomposition findings closed.
+**v1.3, Gate 1 outcome under correction.** The original record — "Approved
+v1.3, Gate 1 CONDITIONAL PASS" — was self-reviewed (reviewer = author) and
+invented a status INT_SDD_Standard.md does not define. Per `status.md`
+(2026-09-28), the honest outcome given the standard's binary model is
+**Changes Requested**, with a genuine independent second-opinion review now
+on record (`employee-internal-transfer.gate1-second-opinion.md`, Soumyadeep,
+2026-09-08) that partially — not fully — mitigates the independence gap.
+`.ai-context/reviews/employee-internal-transfer.gate1.md`, cited below and in
+the second-opinion review, does not exist in this repository; the original
+Gate 1 record lives inline in `status.md`.
 
-Plan drafting authorised. Implementation authorised for the unblocked scope in
-`.ai-context/reviews/employee-internal-transfer.gate1.md` §6 **only**. Gated
-scope is controlled by conditions C1–C10; C11 (Security/Architecture sign-off)
-and C12 (independent peer review) remain unmet and gate Gate 2 entry and
-production implementation respectively.
+Plan drafting authorised. Implementation authorised for the unblocked scope
+only. Gated scope is controlled by conditions C1–C10; C11 (Security/
+Architecture sign-off) and C12 (independent peer review) remain unmet and
+gate Gate 2 entry and production implementation respectively.
+
+**Update (2026-09-28) — BRD v2 impact on gate conditions.** `BRD.md` v2 now
+records actual HR Operations decisions that supersede the provisional
+positions behind C1, C2, C8 and C9 (see `decision-log.md` v1.2). This does
+**not** self-lift those conditions — a provisional decision becoming
+BRD-confirmed is exactly the kind of change that must go back through Gate 1,
+not be silently accepted by the spec that was provisional on it:
+
+| Condition | Provisional decision | BRD v2 status | Spec impact if formally lifted |
+|---|---|---|---|
+| C1 (OQ01, OQ03) | PD02 — three-stage approval | **CONFIRMED**, `BRD-003` | AC17–AC26, API07, AC14, PD11 status projection can drop their contingency tags |
+| C2 (OQ09) | PD12 (partial) — eligibility criteria | **CONFIRMED**, `BRD-002` | AC23, AC24, API03's `NOT_ELIGIBLE` exception become implementable |
+| C8 (OQ35–OQ37) | PD06 (partial) — task-requirement conditions | **CONFIRMED**, `BRD-005` — all four downstream activities always required | AC32, AC33's task-requirement policy is no longer a stub |
+| C9 (OQ40) | PD03 — execution trigger timing | **CONFIRMED**, `BRD-005` | AC29–AC33 scheduling design can proceed |
+| C7 (OQ32, OQ34) | payroll-aligned effective date | **PARTIALLY** — OQ32 (boundary alignment) CONFIRMED via `BRD-005`; OQ34 (cutoff handling) still open | Still blocked — one of two sub-questions remains |
+| C3, C4, C6, C10, C11, C12 | PD01, resignation interrupt, adapters, security sign-off, peer review | **Unchanged** | Still blocked — not addressed by BRD v2 |
+
+Also now BRD-confirmed, not gate-blocking but previously only author-proposed:
+PD05 (point of no return, `BRD-005`), PD09 (reason visibility, `BRD-006`),
+PD11 (status projection detail, `BRD-006`).
 
 ## Revision History
 
@@ -37,7 +65,7 @@ sequence three front-end tasks and the reviewer asked what acceptance criterion
 each satisfied.
 
 ## Linked BRD
-`.ai-context/BRD.md#BRD-001`
+`.ai-context/BRD.md#BRD-001` through `#BRD-007` (v2, 2026-09-28)
 
 ## Context
 - Builds on: `.ai-context/architecture.md` (unpopulated — this is the first feature)
@@ -75,20 +103,25 @@ silently through the acceptance criteria.
 **A provisional decision is not an approved requirement.** No implementation
 task depending on one may start until Gate 1 resolves it.
 
+**Update (2026-09-28):** rows marked ✅ below now have a matching HR
+Operations decision in `BRD.md` v2. They are not re-labelled "approved" here
+— that relabelling is Gate 1's job, not this table's — but a reader should
+know the provisional/BRD gap has closed for these seven.
+
 | ID | Provisional position taken | Source | Risk | AC / API contingent on it |
 |---|---|---|---|---|
 | PD01 | The employee selects a **specific open requisition**, not a role type | discovery OQ16, §10.1 | **HIGH** | AC08, AC12, AC13, API01, API09 |
-| PD02 | Three sequential approvals: releasing manager → receiving manager → HR eligibility | discovery OQ01, OQ03, AS01, AS02 | **HIGH** | AC17–AC26, API07 |
-| PD03 | Downstream execution is triggered **at the effective date**, not at approval | discovery OQ40, AS09 | **HIGH** | AC29–AC33 |
+| PD02 ✅ | Three sequential approvals: releasing manager → receiving manager → HR eligibility | discovery OQ01, OQ03, AS01, AS02 — now `BRD-003` | **HIGH** | AC17–AC26, API07 |
+| PD03 ✅ | Downstream execution is triggered **at the effective date**, not at approval | discovery OQ40, AS09 — now `BRD-005` | **HIGH** | AC29–AC33 |
 | PD04 | Downstream integrations are **asynchronous and may be human-fulfilled**; the portal tracks task state | discovery OQ41, AS11 | **HIGH** | AC30–AC33 |
-| PD05 | HRMS organisational update is the **point of no return** | discovery OQ39, AS12 | **HIGH** | AC27, AC32 |
-| PD06 | A failed downstream activity does **not** reverse the transfer; it raises remediation | discovery OQ38, AS13 | Medium | AC32 |
+| PD05 ✅ | HRMS organisational update is the **point of no return** | discovery OQ39, AS12 — now `BRD-005` | **HIGH** | AC27, AC32 |
+| PD06 ✅ | A failed downstream activity does **not** reverse the transfer; it raises remediation | discovery OQ38, AS13 — now `BRD-005` | Medium | AC32 |
 | PD07 | One active transfer request per employee | discovery OQ17, AS05 | Medium | AC12, AC13 |
 | PD08 | Effective date ≥ 15 calendar days after submission; never backdated | discovery OQ30, OQ31, AS08 | Medium | AC09, AC10 |
-| PD09 | The reason field is visible to HR only, never to either manager | discovery OQ49, AS14 | Medium | AC36 |
+| PD09 ✅ | The reason field is visible to HR only, never to either manager | discovery OQ49, AS14 — now `BRD-006` | Medium | AC36 |
 | PD10 | A submitted request is immutable; changes require withdrawal and re-raise | discovery OQ22, AS07 | Low | AC16, AC26 |
-| PD11 | Employee sees stage-level status and the *role* holding a pending action, never a named individual | discovery OQ52, AS15 | Low | AC34, AC37 |
-| PD12 | Eligibility is machine pre-checked at submission, with HR retaining final human validation | discovery OQ10, OQ11, AS03 | Medium | AC23, AC24 |
+| PD11 ✅ | Employee sees stage-level status and the *role* holding a pending action, never a named individual | discovery OQ52, AS15 — now `BRD-006` | Low | AC34, AC37 |
+| PD12 ✅ | Eligibility is machine pre-checked at submission, with HR retaining final human validation | discovery OQ10, OQ11, AS03 — now `BRD-002` | Medium | AC23, AC24 |
 
 **Deliberately unspecified, because no provisional position is defensible:**
 eligibility *criteria* themselves (discovery OQ09 / DEP14 — an HR policy
