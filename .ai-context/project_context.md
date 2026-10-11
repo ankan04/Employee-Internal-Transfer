@@ -57,10 +57,27 @@ sync with it, not the other way round.
 
 Named reviewers for the gates on this feature (§12, §27 — reviewer ≠ author).
 
-| Name | Role | Scope |
-|---|---|---|
-| Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | Assigned Gate 0 (BRD) reviewer |
-| Soumyadeep | INT Delivery Leadership | Gate 1 (spec) reviewer — see `.ai-context/reviews/employee-internal-transfer.gate1-second-opinion.md` |
+| Name | Role | Email | Scope |
+|---|---|---|---|
+| Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | ankangupta02@gmail.com | Assigned Gate 0 (BRD) reviewer |
+| Soumyadeep | INT Delivery Leadership | soumyadeep@int.com | Assigned Gate 1 (spec) reviewer |
+| Tech Lead | Technical Lead / Senior Architect | techlead@int.com | Assigned Gate 2 (code) reviewer |
+| Ankan Gupta | Senior Software Engineer | ankangupta02@gmail.com | Developer / Spec Author |
+
+## CodeGraph Configuration
+
+```json
+{
+  "codeGraph": {
+    "enabled": true,
+    "version": "1.0.0",
+    "indexStatus": "READY",
+    "dbPath": ".ai-context/codegraph.sqlite",
+    "lastSyncAt": "2026-10-11 23:45:00",
+    "syncMode": "incremental"
+  }
+}
+```
 
 ## Where To Start
 

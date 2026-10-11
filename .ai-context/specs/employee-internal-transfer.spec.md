@@ -5,8 +5,11 @@
 | | |
 |---|---|
 | **Document** | `employee-internal-transfer.spec.md` |
-| **Status** | Draft v0.1 — specification with open decisions; **not approved for implementation of blocked items** |
-| **Inputs** | Deliverable 1 — Discovery Analysis (BR-001–011, KD-001–016, OQ-B01–16, OQ-T01–09, AS-001–007, DEP-001–009, §11 risks) |
+| **Status** | Draft v0.3 — revised by CR-20261011-payroll-before-receiving-manager against BRD v3 (**Gate 0 approved 2026-10-11**, BRD-20261011-201241); **submitted for Gate 1 re-review**; **not approved for implementation** |
+| **Inputs** | `.ai-context/BRD.md` — Gate 0 **APPROVED** 2026-10-12 (`pr_reviews/GATE0-employee-internal-transfer-20261012-003400.md`): BR-001–011, KD-001–016, OQ-B01–17, OQ-T01–09, AS-001–007, DEP-001–009, §11 risks |
+| **Change Request** | `change_requests/CR-20261011-payroll-before-receiving-manager.md`: workflow order changed to Releasing Manager → Releasing Dept HRBP → Receiving HRBP → **Payroll → Receiving Manager** → IT (KD-012 v3). |
+| **BRD references** | The approved BRD is titled "Deliverable 1 — Requirement / Discovery Analysis". Every "Discovery §n" reference in this spec means `BRD.md` §n. |
+| **Revision** | v0.3 (2026-10-11, CR-20261011): stage order swapped (Payroll = stage 4, Receiving Manager = stage 5) in §2, §4.1, FR-050, §6.1 and AC-023; AC-025 🔒 added for Payroll reversal (OQ-B17); §9, §15.1 and §16 updated. v0.2 (2026-10-11): BRD sync only — inputs re-pointed to the approved BRD; FR-013 trace corrected; KD-008/KD-009 traced; reason-mandatory question carried as OPEN; §16 completed for KD-001–009; §15.4 added. No acceptance criterion's behaviour changed. |
 | **Next artefact** | Deliverable 3 — Technical Plan |
 
 > **How to read this document.** Requirements are tagged by confidence:
@@ -84,8 +87,8 @@ Provide a single digital journey in the One-Point Employee Portal where an emplo
 | **Releasing Manager** | Stage 1 approver. | KD-012 |
 | **Releasing Department HRBP** | Stage 2 approver; edit/withdraw cutoff tied to this stage. | KD-012, KD-014 |
 | **Receiving HRBP** | Stage 3 approver. | KD-012 |
-| **Receiving Manager** | Stage 4 approver. | KD-012 |
-| **Payroll** | Stage 5 action owner; updates organisational/payroll database. | KD-012, KD-016 |
+| **Payroll** | Stage 4 action owner; updates organisational/payroll database. | KD-012 (v3), KD-016 |
+| **Receiving Manager** | Stage 5 approver, acting after the Payroll update. | KD-012 (v3), OQ-B17 |
 | **IT** | Stage 6 action owner; updates organisational/IT database. | KD-012, KD-016 |
 | **Super Admin** | Configures roles and administrative settings; final escalation fallback. Further powers **OPEN**. | KD-015, OQ-B16 |
 | **HR / business process owner** | Owns policy decisions (not a runtime actor unless the role matrix says so). | Discovery §2 |
@@ -115,15 +118,15 @@ Provide a single digital journey in the One-Point Employee Portal where an emplo
 
 ## 4. Workflow specification
 
-### 4.1 Stage order **[CONFIRMED — KD-012]**
+### 4.1 Stage order **[CONFIRMED — KD-012 v3, CR-20261011]**
 
 ```text
 Submit
   → 1. Releasing Manager
   → 2. Releasing Department HRBP
   → 3. Receiving HRBP
-  → 4. Receiving Manager
-  → 5. Payroll
+  → 4. Payroll
+  → 5. Receiving Manager
   → 6. IT
   → Completed
 ```
@@ -181,12 +184,12 @@ IDs are stable for downstream tasks and tests. Priority: **M** = must, **S** = s
 | FR-010 | An employee shall be able to initiate an Internal Transfer Request for themselves. | CONFIRMED | M | BR-001, KD-002 |
 | FR-011 | A manager shall be able to initiate a request on behalf of an employee. | CONFIRMED | M | KD-011 |
 | FR-012 | For manager-created requests, the system shall record requester and subject separately. | PROPOSED | M | AS-002 |
-| FR-013 | Whether the employee must confirm a manager-created request, and how they are notified, is **OPEN**. | OPEN | — | OQ-B10 (related), Discovery §2 |
+| FR-013 | Whether the employee must confirm a manager-created request, and how they are notified, is **OPEN**. | OPEN | — | BRD §2 (Manager row), BRD §5.2 (Access and permissions) — no OQ-B ID assigned in the BRD |
 | FR-014 | The form shall capture proposed department/business unit, location, role/job position, effective date, and an optional reason. | CONFIRMED | M | BR-002–006, KD-003, KD-004 |
 | FR-015 | Department/business unit, location, and role shall be selected from governed organisation data, not free text. | PROPOSED | M | AS-003, DEP-003 |
 | FR-016 | Valid combinations of department, location, and role, and the authoritative source, are **OPEN**. | OPEN | — | OQ-B06, OQ-T02 |
 | FR-017 | Effective-date rules (future date, notice period, calendar, blackout) are **OPEN**. | OPEN | — | OQ-B05 |
-| FR-018 | Eligibility checks before or after submission are **OPEN**. | OPEN | — | OQ-B04 |
+| FR-018 | Eligibility checks before or after submission are **OPEN**. | OPEN | — | KD-008, OQ-B04 |
 | FR-019 | Duplicate-request detection and concurrent-request handling are **OPEN**; the system shall not create duplicate requests from a repeated submit action. | OPEN / PROPOSED | M | BR-007, §11 |
 
 ### 5.3 Submission and tracking
@@ -208,7 +211,7 @@ IDs are stable for downstream tasks and tests. Priority: **M** = must, **S** = s
 | FR-031 | The system shall not activate a stage until the previous stage completes successfully. | CONFIRMED | M | WF-02 |
 | FR-032 | Approvers shall be resolved from approved organisation/manager data, not inferred from job titles. | PROPOSED | M | DEP-004 |
 | FR-033 | Each stage shall have explicit outcomes sufficient to drive the progress view. | PROPOSED | M | AS-005 |
-| FR-034 | Whether Payroll and IT apply to every transfer, and whether Facilities participates, is **OPEN**. | OPEN | — | OQ-B11, AS-006 |
+| FR-034 | Whether Payroll and IT apply to every transfer, and whether Facilities participates, is **OPEN**. | OPEN | — | KD-009, OQ-B11, AS-006 |
 
 ### 5.5 Edit, withdraw, cancel
 
@@ -225,7 +228,7 @@ IDs are stable for downstream tasks and tests. Priority: **M** = must, **S** = s
 
 | ID | Requirement | Conf. | Pri | Traces |
 |---|---|---|---|---|
-| FR-050 | Payroll shall update the relevant organisational/payroll database as stage 5. | CONFIRMED | M | KD-016 |
+| FR-050 | Payroll shall update the relevant organisational/payroll database as stage 4. | CONFIRMED (stage number per KD-012 v3) | M | KD-016, KD-012 |
 | FR-051 | IT shall update the relevant organisational/IT database as stage 6. | CONFIRMED | M | KD-016 |
 | FR-052 | The request shall be marked Completed only after both updates are confirmed. | CONFIRMED principle | M | WF-04, AS-007 |
 | FR-053 | The success evidence (callback, API response, manual confirmation) and integration style (API/event/queue/manual) are **OPEN**. | OPEN | — | OQ-B12, OQ-T03, OQ-T04 |
@@ -255,8 +258,8 @@ IDs are stable for downstream tasks and tests. Priority: **M** = must, **S** = s
 | Pending — Releasing Manager | Stage 1 active | No |
 | Pending — Releasing Dept HRBP | Stage 2 active | No |
 | Pending — Receiving HRBP | Stage 3 active | No |
-| Pending — Receiving Manager | Stage 4 active | No |
-| Pending — Payroll | Stage 5 active | No |
+| Pending — Payroll | Stage 4 active | No |
+| Pending — Receiving Manager | Stage 5 active | No |
 | Pending — IT | Stage 6 active | No |
 | Returned for information | An approver asked for more information | No *(OPEN)* |
 | Rejected | An approver rejected | **OPEN** |
@@ -298,7 +301,7 @@ Logical entities only. Storage, schema, and API design belong to Deliverable 3.
 | Proposed location | Yes | From governed data | BR-003, AS-003 |
 | Proposed role / job position | Yes | From governed data | BR-004, AS-003 |
 | Effective date | Yes | Rules **OPEN** | BR-005, OQ-B05 |
-| Reason | **Optional** | Length/content rules **OPEN**; may be sensitive | BR-006, KD-004 |
+| Reason | **Optional** | Length/content rules **OPEN**; whether it becomes mandatory for particular transfer types is **OPEN** (BRD §5.2, no OQ-B ID); may be sensitive | BR-006, KD-004 |
 | Current status | System | See §6 | BR-008 |
 | Created / submitted timestamps | System | | — |
 
@@ -355,8 +358,9 @@ Format: **Given / When / Then**. Criteria marked 🔒 are **blocked** until the 
 | AC-020 | **Given** a submitted request, **then** stage 1 (Releasing Manager) is the only active stage. | FR-030, WF-01 |
 | AC-021 | **Given** stage N is not completed successfully, **then** stage N+1 is not active and its owner cannot act. | FR-031, WF-02 |
 | AC-022 | **Given** stage N completes successfully, **then** stage N+1 becomes active and the status updates accordingly. | FR-030 |
-| AC-023 | **Given** all six stages are processed in order, **then** the stages occur in the order Releasing Manager, Releasing Dept HRBP, Receiving HRBP, Receiving Manager, Payroll, IT. | KD-012 |
+| AC-023 | **Given** all six stages are processed in order, **then** the stages occur in the order Releasing Manager, Releasing Dept HRBP, Receiving HRBP, Payroll, Receiving Manager, IT. *(Revised by CR-20261011.)* | KD-012 (v3) |
 | AC-024 | **Given** any stage, **then** no two stages are active at the same time. | WF-01 |
+| AC-025 🔒 | **Given** Payroll has confirmed its stage-4 update, **when** the Receiving Manager rejects or returns the request at stage 5, **then** the approved Payroll-reversal rule applies. *(Added by CR-20261011.)* | KD-012 (v3), OQ-B17 |
 
 ### 8.4 Edit / withdraw / cancel
 
@@ -412,6 +416,7 @@ Carries forward the §11 discovery risks. Business behaviour is **PROPOSED** unl
 | Unauthorised access | Enforce FR-003 and role matrix. | OQ-B14, OQ-T01 |
 | Sensitive-data exposure | Limit reason/transfer details to authorised roles. | OQ-B14 |
 | Unclear rejection/rework path | Defined path required before release. | OQ-B10 |
+| Receiving Manager rejects after Payroll has updated | The Payroll update must not be left silently in place; the approved reversal or hold rule applies (AC-025). | OQ-B17 |
 
 ---
 
@@ -520,6 +525,7 @@ DEP-001 – DEP-009 apply unchanged (portal integration, employee/org master dat
 | OQ-B08 | Cancellation approver and in-flight handling | FR-045, AC-036 |
 | OQ-B01 / B02 / B03 | L1–L3 mapping, SLAs, delegation | FR-060–063, AC-043–044 |
 | OQ-B12 | Payroll/IT success evidence | FR-052–053, AC-047 |
+| OQ-B17 | Payroll reversal if the Receiving Manager rejects or returns after the stage-4 update | AC-025, FR-050 |
 | OQ-B14 | Employee-visible pending-action detail | FR-024, AC-013 |
 | OQ-B16 | Super Admin capability set | FR-064, AC-052 |
 | OQ-B04 / B05 / B06 | Eligibility, date rules, valid combinations | FR-016–018, AC-007–009 |
@@ -537,6 +543,18 @@ DEP-001 – DEP-009 apply unchanged (portal integration, employee/org master dat
 
 AS-006 (conditional downstream) must be reconciled with KD-016 (Payroll and IT updates are part of the completion path). Until OQ-B11 is answered, treat Payroll and IT as stages in the confirmed sequence, and treat any conditional applicability as **OPEN**, not assumed.
 
+### 15.4 Gate 0 reviewer recommendation — needs reviewer clarification
+
+The Gate 0 approval record asks that "open gating conditions (C3, C5, C12) in the spec are addressed against the approved BRD baseline". Condition IDs C3, C5 and C12 come from the superseded spec v1.3, which was replaced by this spec in commit `42dee74`. This spec has no C-numbered conditions. The likely matches below are **unconfirmed**, and the Gate 1 reviewer needs to confirm or correct them:
+
+| Old condition | Old subject | Possible match in this spec |
+|---|---|---|
+| C3 | Position / requisition model (old OQ16) | No direct match. OQ-B06 (valid department/location/role combinations) is the closest. |
+| C5 | Approval authority plus delegation (old OQ25 + OQ29) | OQ-B03 (delegation), with OQ-B01 (L1–L3 mapping) |
+| C12 | Independent peer review | The Gate 1 review itself |
+
+The BRD also leaves two items open without an OQ-B ID: whether the employee must confirm a manager-created request (FR-013), and whether the reason becomes mandatory for particular transfer types (§7.1). IDs for them should be raised in the BRD; this spec does not invent them.
+
 ---
 
 ## 16. Traceability matrix
@@ -552,9 +570,17 @@ AS-006 (conditional downstream) must be reconciled with KD-016 (Payroll and IT u
 | BR-009 | FR-024 | AC-011, AC-013 |
 | BR-010 | FR-030, FR-031, FR-050–052 | AC-020 – AC-024, AC-045 – AC-048 |
 | BR-011 | FR-023, FR-025 | AC-010 |
+| KD-001 | FR-001 | AC-001 |
+| KD-002 | FR-010 | AC-001 |
+| KD-003 | FR-014, FR-015 | AC-003, AC-004 |
+| KD-005 | FR-020, FR-022 | AC-006, AC-010 |
+| KD-006 | FR-024 | AC-011, AC-013 |
+| KD-007 | FR-023, FR-025, FR-030 | AC-010, AC-020 |
+| KD-008 | FR-018, FR-030 | AC-009, AC-020 |
+| KD-009 | FR-034, FR-050, FR-051 | AC-045, AC-046 |
 | KD-010 | FR-001, FR-002 | AC-051 |
 | KD-011 | FR-011, FR-012 | AC-002 |
-| KD-012 | FR-030, FR-031, WF-01/02 | AC-020 – AC-024 |
+| KD-012 (v3) | FR-030, FR-031, FR-050, WF-01/02 | AC-020 – AC-025 |
 | KD-013 | FR-043 – FR-045 | AC-033 – AC-036 |
 | KD-014 | FR-040 – FR-042 | AC-030 – AC-032 |
 | KD-015 | FR-060 – FR-064 | AC-043, AC-044, AC-050 – AC-052 |
@@ -567,6 +593,7 @@ AS-006 (conditional downstream) must be reconciled with KD-016 (Payroll and IT u
 
 The specification is ready for the technical plan when:
 
+- [x] The spec is synced to the Gate 0-approved BRD baseline (v0.2, 2026-10-11).
 - [ ] All **blocking** OQ items in §15.1 are resolved, or explicitly accepted as temporary assumptions.
 - [ ] The status model in §6 is approved.
 - [ ] The role matrix, including Super Admin capabilities, is approved.

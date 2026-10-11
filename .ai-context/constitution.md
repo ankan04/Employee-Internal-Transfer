@@ -19,10 +19,12 @@ a review's reviewer ≠ author against (§12, §27). Kept in sync with
 `project_context.md#reviewer-roster` — that copy is authoritative if the
 two ever disagree.
 
-| Name | Role | Scope |
-|---|---|---|
-| Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | Assigned Gate 0 reviewer |
-| Soumyadeep | INT Delivery Leadership | Gate 1 reviewer |
+| Name | Role | Email | Scope |
+|---|---|---|---|
+| Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | ankangupta02@gmail.com | Assigned Gate 0 reviewer |
+| Soumyadeep | INT Delivery Leadership | soumyadeep@int.com | Gate 1 reviewer |
+| Tech Lead | Technical Lead / Senior Architect | techlead@int.com | Assigned Gate 2 reviewer |
+| Ankan Gupta | Senior Software Engineer | ankangupta02@gmail.com | Developer / Spec Author |
 
 ---
 

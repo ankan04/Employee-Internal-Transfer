@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Status** | Discovery draft — updated with project-owner clarifications; open questions remain |
+| **Status** | **v3 — Gate 0 APPROVED 2026-10-11** (`pr_reviews/BRD-20261011-201241.md`; OQ-B17 deferred). v2 was approved on 2026-10-12. v3 changes the workflow order (KD-012) under `CR-20261011-payroll-before-receiving-manager` and adds OQ-B17. Open questions remain. |
 | **Source** | `Requirement for SDD.docx` (SDD Developer Assessment) plus project-owner clarifications recorded in this conversation |
 | **Next artefact** | Deliverable 2 — Feature Specification (`.spec.md`) |
 
@@ -56,8 +56,8 @@ The wider business context is that an internal transfer currently involves multi
 | **Releasing Manager** | First approval stage in the confirmed sequential workflow. | Identity and authority should come from approved organisation/manager data. L1/L2/L3 escalation mappings remain open. |
 | **Releasing Department HRBP** | Second approval stage. Employee edit/withdraw cutoff is associated with this stage, but exact timing is unresolved. | Define what "until the Releasing HRBP is approving" means operationally, and whether a request can be edited while waiting for or while being reviewed by this HRBP. L1/L2/L3 mappings remain open. |
 | **Receiving HRBP** | Third approval stage. | Define decision authority, required checks, and L1/L2/L3 mappings. |
-| **Receiving Manager** | Fourth approval stage. | Define decision authority and L1/L2/L3 mappings. |
-| **Payroll** | Fifth stage; must update the relevant organisational/payroll database as part of completion. | Confirm data fields, integration or manual action, success evidence, retries, and L1/L2/L3 escalation mappings. |
+| **Receiving Manager** | Fifth stage (after Payroll since v3, CR-20261011). | Define decision authority and L1/L2/L3 mappings. Define what happens to the completed Payroll update if this stage rejects or returns (OQ-B17). |
+| **Payroll** | Fourth stage (before the Receiving Manager since v3, CR-20261011); must update the relevant organisational/payroll database as part of completion. | Confirm data fields, integration or manual action, success evidence, retries, and L1/L2/L3 escalation mappings. |
 | **IT** | Sixth stage; must update the relevant organisational/IT database as part of completion. | Confirm data fields, integration or manual action, success evidence, retries, and L1/L2/L3 escalation mappings. |
 | **Super Admin** | Final escalation fallback. Can configure roles and other administrative settings; exact capabilities need definition. | Confirm permissions, separation of duties, audit requirements, and which actions Super Admin may perform. Final fallback if L1/L2/L3 escalation does not resolve the issue. |
 | **One-Point Employee Portal** | Entry point for the digital journey. | Confirm portal integration, navigation, identity propagation, and hosting conventions. Project-owner clarification: one shared login entry point for employees, managers, and other users; role-based permissions still need to be defined. |
@@ -77,7 +77,9 @@ The stages below reflect the current project-owner clarifications. The six workf
 4. **Submit and track** — Persist the request and provide the employee with the request status and a view of all relevant status stages. Status names, transitions, and pending-action visibility remain to be defined.
 5. **Sequential approvals/actions** — Process one stage at a time in this exact order:
 
-   **Releasing Manager → Releasing Department HRBP → Receiving HRBP → Receiving Manager → Payroll → IT**
+   **Releasing Manager → Releasing Department HRBP → Receiving HRBP → Payroll → Receiving Manager → IT**
+
+   *(Order revised in v3 by CR-20261011-payroll-before-receiving-manager; previously Receiving Manager came before Payroll.)*
 
    The next stage must not start until the preceding stage has completed successfully according to the approved business rules.
 6. **Edit/withdraw before cutoff** — The employee may edit or withdraw a submitted request only up to the cutoff associated with the Releasing HRBP stage. The phrase "until the Releasing HRBP is approving" is not precise enough to determine whether the cutoff is when the request enters that queue or when review actually begins; this remains open.
@@ -130,7 +132,7 @@ The stages below reflect the current project-owner clarifications. The six workf
 
 - One shared login entry point serves employees, managers, and other users; role-based access remains to be defined.
 - A manager can initiate a request on behalf of an employee.
-- The approval/action stages are sequential in this order: Releasing Manager, Releasing Department HRBP, Receiving HRBP, Receiving Manager, Payroll, IT.
+- The approval/action stages are sequential in this order: Releasing Manager, Releasing Department HRBP, Receiving HRBP, Payroll, Receiving Manager, IT. *(Revised v3, CR-20261011.)*
 - An employee can request cancellation, and manager approval is required.
 - An employee can edit or withdraw a submitted request only until the cutoff associated with the Releasing HRBP stage; the exact cutoff is unresolved.
 - Super Admin can configure roles and other administrative settings, with detailed permissions still to be specified.
@@ -163,6 +165,7 @@ The stages below reflect the current project-owner clarifications. The six workf
 - Rejection, cancellation, return-for-information, and resubmission behaviour, including their effects on the sequential workflow.
 - Whether Payroll and IT actions are mandatory for every transfer or conditional by transfer type; whether Facilities or other teams are included.
 - The exact success evidence for Payroll and IT database updates.
+- How a Payroll update is reversed or held if the Receiving Manager later rejects or returns the request (OQ-B17, v3).
 - What constitutes completion and when the employee is notified.
 
 **Communication, visibility, and governance**
@@ -191,7 +194,7 @@ The stages below reflect the current project-owner clarifications. The six workf
 | KD-009 | Organisational-information updates are part of the example journey; payroll, IT, and facilities actions may apply. | Business Context |
 | KD-010 | One shared login entry point serves employee, manager, and other users. | Project-owner clarification |
 | KD-011 | A manager can initiate a transfer request on behalf of an employee. | Project-owner clarification |
-| KD-012 | Workflow order is sequential: Releasing Manager → Releasing Department HRBP → Receiving HRBP → Receiving Manager → Payroll → IT. | Project-owner clarification |
+| KD-012 | Workflow order is sequential: Releasing Manager → Releasing Department HRBP → Receiving HRBP → Payroll → Receiving Manager → IT. | Project-owner clarification. **Order revised in v3** by CR-20261011-payroll-before-receiving-manager (decided by Ankan Gupta; Gate 0 approved 2026-10-11, BRD-20261011-201241). |
 | KD-013 | Employee can request cancellation; manager approval is required. | Project-owner clarification |
 | KD-014 | Employee can edit/withdraw only until the cutoff tied to the Releasing HRBP stage. | Project-owner clarification; exact cutoff open |
 | KD-015 | Super Admin is the final escalation fallback and can configure roles and other administrative settings. | Project-owner clarification |
@@ -217,6 +220,7 @@ The stages below reflect the current project-owner clarifications. The six workf
 | OQ-B14 | What information about pending stakeholder actions can the employee see? | Establishes privacy and user-experience boundaries. | HR / security / business owner |
 | OQ-B15 | What audit history must be captured and how long must it be retained, including manager-on-behalf submissions, edits, withdrawals, cancellation, delegation, and escalations? | Affects compliance, support, and traceability. | HR / security / records owner |
 | OQ-B16 | What additional permissions and capabilities can Super Admin exercise beyond role configuration and final escalation? | Supports least privilege and separation of duties. | HR / security / product owner |
+| OQ-B17 | Payroll (stage 4) now updates its database before the Receiving Manager (stage 5) decides. If the Receiving Manager rejects or returns the request, is the payroll update reversed, held as provisional until stage 5 approves, or left in place? Who performs the reversal? | Without a rule, a rejected transfer can leave payroll data changed for a transfer that never happens. Raised by CR-20261011 (v3). | HR / Payroll / business owner |
 
 #### Recommended handling of rejection and requests for more information
 
@@ -345,6 +349,7 @@ These are discovery risks to analyse, not final solution requirements.
 | **Cancellation after work starts** | Payroll/IT actions continue after cancellation is requested or approved unless handling is defined. |
 | **Invalid or stale organisation data** | Employee selects a department, location, or role that is no longer valid. |
 | **Partial downstream completion** | Organisational data is updated but another required action fails. |
+| **Payroll updated before final manager approval** | Since v3, Payroll acts before the Receiving Manager. A stage-5 rejection or return can leave payroll data changed for a transfer that does not proceed (OQ-B17). |
 | **Integration outage or timeout** | Status becomes stale or a stakeholder action is not created. |
 | **Duplicate submission or repeated event** | Duplicate requests or downstream actions are created. |
 | **Incorrect status** | The employee sees completion before all required activities finish. |
@@ -363,7 +368,7 @@ Use stable identifiers in later artefacts so requirements remain connected to sp
 | Discovery reference | Subject | Expected downstream linkage |
 |---|---|---|
 | BR-001 – BR-011 | Explicit business requirements/objectives | Spec sections and individually identifiable acceptance criteria |
-| OQ-B01 – OQ-B16 | Business questions | Decision log; affected spec requirements; tests once resolved |
+| OQ-B01 – OQ-B17 | Business questions | Decision log; affected spec requirements; tests once resolved |
 | OQ-T01 – OQ-T09 | Technical questions | Technical plan, architecture decisions, integration contracts, security assessment |
 | AS-001 – AS-007 | Working assumptions | Validation outcome; requirements or design changes if rejected |
 | DEP-001 – DEP-009 | Dependencies | Plan, task dependencies, integration tests, release readiness |

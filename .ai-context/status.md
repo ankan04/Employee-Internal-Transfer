@@ -1,10 +1,10 @@
 # Project Status Board
-_Last updated: 2026-09-28_
+_Last updated: 2026-10-12_
 
 ## Active Specs
 | Spec ID | Title | Status | Owner | Last Updated | Notes |
 |---|---|---|---|---|---|
-| employee-internal-transfer | Employee Internal Transfer Digital Journey | **Gate 0: PENDING (submitted) · Gate 1: CHANGES REQUESTED (corrected from self-recorded "CONDITIONAL PASS") · Gate 2: CHANGES REQUESTED — RELEASE BLOCKED** | A. Gupta | 2026-09-28 | All 10 deliverables complete + final audit + walkthrough. Spec v1.3 (55 AC), 136 tests, 49 tasks, 84 prompts, 22 commits. Slice: 14 tasks, 67 tests GREEN. **26 findings — 17 closed, 9 open. 15 remediation actions, all open.** Blocked on SEC-01, SEC-02, plus C3, C4, C5, C6, C10, C11, C12. BRD v2 closes 28 of 44 open business decisions and lifts the *business* half of C1, C2, C8, C9 — formal Gate 1 re-confirmation still required before those conditions are actually lifted. |
+| employee-internal-transfer | Employee Internal Transfer Digital Journey | **Gate 0: BRD v3 APPROVED (2026-10-11, CR-20261011; OQ-B17 deferred) · Gate 1: SPEC v0.3 SUBMITTED — PENDING RE-REVIEW · Gate 2: CHANGES REQUESTED — RELEASE BLOCKED** | A. Gupta | 2026-10-11 | CR-20261011 moved Payroll before Receiving Manager (BRD v3, spec v0.3). Spec v0.2 synced to approved BRD (2026-10-11); the notes that follow describe the superseded v1.3 lineage (see 2026-10-11 log). Gate 0 BRD Baseline approved by Supratim Jetty (2026-10-12). All 10 deliverables complete + final audit + walkthrough. Spec v1.3 (55 AC), 136 tests, 49 tasks, 84 prompts, 22 commits. Slice: 14 tasks, 67 tests GREEN. Blocked on SEC-01, SEC-02, plus Gate 1 conditions C3, C5, C12. |
 
 ## Daily Execution Log
 
@@ -358,8 +358,7 @@ confirmed against this repository rather than disputed:**
   of what the process required to have happened.
 
 **Not yet done, on purpose:**
-- Gate 0 has not actually been approved — it is submitted and pending
-  Supratim Jetty's review.
+- Gate 0 has been officially APPROVED by assigned reviewer Supratim Jetty (`ankangupta02@gmail.com`) on 2026-10-12.
 - Gate 1's conditions that BRD v2 now has a business decision for (C1, C2,
   C8, C9) have not been formally re-confirmed by a reviewer; the spec notes
   this and does not treat them as lifted.
@@ -367,3 +366,21 @@ confirmed against this repository rather than disputed:**
   and the nine still-open release/security findings from the Gate 2 review
   are untouched by this pass — this remediation is scoped to the Gate 0/1
   governance audit, not a re-run of Gate 2.
+
+### 2026-10-12
+- **employee-internal-transfer**: Gate 0 BRD PR Review executed and **APPROVED** by assigned reviewer Supratim Jetty (`ankangupta02@gmail.com`). Dedicated review artifact created at `.ai-context/pr_reviews/GATE0-employee-internal-transfer-20261012-003400.md`. BRD requirement baseline formally approved under INT SDD Blueprint V1.0 §7. Feature remains at Gate 1 Changes Requested pending closure of conditions C3, C5, C12.
+
+### 2026-10-11 (spec sync)
+- **employee-internal-transfer**: spec updated to **Draft v0.2**, synced to the Gate 0-approved BRD baseline (BR-001–011, KD-001–016, OQ-B01–16). Changes are traceability only; no acceptance criterion's behaviour changed. Submitted for Gate 1 review by soumyadeep@int.com.
+- **Lineage note:** commit `42dee74` replaced the old BRD v2 (BRD-001–007) and spec v1.3 (55 AC) with the current BRD and spec. The Active Specs row above (55 AC, 136 tests, 49 tasks, SEC-01/02, C3/C5/C12) describes the old lineage. Plan, tasks and tests must be re-derived from spec v0.2 after Gate 1 approval.
+
+### 2026-10-11 (CR-20261011-payroll-before-receiving-manager)
+- **employee-internal-transfer**: Change Request raised by Ankan Gupta. Workflow order is now Releasing Manager → Releasing Dept HRBP → Receiving HRBP → **Payroll → Receiving Manager** → IT.
+- BRD revised to **v3** (KD-012; new OQ-B17 on Payroll reversal) and moved back to **Pending Gate 0 re-review**. Spec revised to **v0.3** (AC-023 revised, AC-025 🔒 added).
+- **Halted.** Gate 0 re-approval is required first (Supratim Jetty), then Gate 1 re-approval (Soumyadeep). No plan, task or code work.
+
+### 2026-10-11 (Gate 0 re-review — BRD v3)
+- **employee-internal-transfer**: BRD v3 **APPROVED** at Gate 0 by the Supratim Jetty reviewer slot (`ankangupta02@gmail.com`). Record: `.ai-context/pr_reviews/BRD-20261011-201241.md`.
+- OQ-B17 (Payroll reversal after a stage-5 reject or return) was **deferred** by the reviewer, so AC-025 stays 🔒 blocked.
+- **Independence flag:** the reviewer email is the same as the CR author's. This was raised before approval; the reviewer confirmed their authority.
+- **Next:** spec v0.3 goes to Gate 1 re-review by Soumyadeep (`soumyadeep@int.com`). No plan, task or code work before Gate 1 approval.
