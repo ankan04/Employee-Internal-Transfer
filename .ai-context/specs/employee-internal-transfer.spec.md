@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Document** | `employee-internal-transfer.spec.md` |
-| **Status** | Draft v0.3 — revised by CR-20261011-payroll-before-receiving-manager against BRD v3 (**Gate 0 approved 2026-10-11**, BRD-20261011-201241); **submitted for Gate 1 re-review**; **not approved for implementation** |
+| **Status** | Draft v0.3 — revised by CR-20261011-payroll-before-receiving-manager against BRD v3 (**Gate 0 approved 2026-10-11**, BRD-20261011-201241); **Gate 1 APPROVED 2026-10-11** (`pr_reviews/GATE1-employee-internal-transfer-20261011-201710.md`) for the 25 unblocked ACs only; 🔒 ACs remain blocked |
 | **Inputs** | `.ai-context/BRD.md` — Gate 0 **APPROVED** 2026-10-12 (`pr_reviews/GATE0-employee-internal-transfer-20261012-003400.md`): BR-001–011, KD-001–016, OQ-B01–17, OQ-T01–09, AS-001–007, DEP-001–009, §11 risks |
 | **Change Request** | `change_requests/CR-20261011-payroll-before-receiving-manager.md`: workflow order changed to Releasing Manager → Releasing Dept HRBP → Receiving HRBP → **Payroll → Receiving Manager** → IT (KD-012 v3). |
 | **BRD references** | The approved BRD is titled "Deliverable 1 — Requirement / Discovery Analysis". Every "Discovery §n" reference in this spec means `BRD.md` §n. |

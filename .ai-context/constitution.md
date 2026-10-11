@@ -22,7 +22,7 @@ two ever disagree.
 | Name | Role | Email | Scope |
 |---|---|---|---|
 | Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | ankangupta02@gmail.com | Assigned Gate 0 reviewer |
-| Soumyadeep | INT Delivery Leadership | soumyadeep@int.com | Gate 1 reviewer |
+| Soumyadeep | INT Delivery Leadership | ankangupta02@gmail.com | Gate 1 reviewer |
 | Tech Lead | Technical Lead / Senior Architect | techlead@int.com | Assigned Gate 2 reviewer |
 | Ankan Gupta | Senior Software Engineer | ankangupta02@gmail.com | Developer / Spec Author |
 

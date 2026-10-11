@@ -4,7 +4,7 @@ _Last updated: 2026-10-12_
 ## Active Specs
 | Spec ID | Title | Status | Owner | Last Updated | Notes |
 |---|---|---|---|---|---|
-| employee-internal-transfer | Employee Internal Transfer Digital Journey | **Gate 0: BRD v3 APPROVED (2026-10-11, CR-20261011; OQ-B17 deferred) · Gate 1: SPEC v0.3 SUBMITTED — PENDING RE-REVIEW · Gate 2: CHANGES REQUESTED — RELEASE BLOCKED** | A. Gupta | 2026-10-11 | CR-20261011 moved Payroll before Receiving Manager (BRD v3, spec v0.3). Spec v0.2 synced to approved BRD (2026-10-11); the notes that follow describe the superseded v1.3 lineage (see 2026-10-11 log). Gate 0 BRD Baseline approved by Supratim Jetty (2026-10-12). All 10 deliverables complete + final audit + walkthrough. Spec v1.3 (55 AC), 136 tests, 49 tasks, 84 prompts, 22 commits. Slice: 14 tasks, 67 tests GREEN. Blocked on SEC-01, SEC-02, plus Gate 1 conditions C3, C5, C12. |
+| employee-internal-transfer | Employee Internal Transfer Digital Journey | **Gate 0: BRD v3 APPROVED (2026-10-11, CR-20261011; OQ-B17 deferred) · Gate 1: SPEC v0.3 APPROVED (2026-10-11; 25 ACs unblocked, 13 🔒) · Gate 2: CHANGES REQUESTED — RELEASE BLOCKED** | A. Gupta | 2026-10-11 | CR-20261011 moved Payroll before Receiving Manager (BRD v3, spec v0.3). Spec v0.2 synced to approved BRD (2026-10-11); the notes that follow describe the superseded v1.3 lineage (see 2026-10-11 log). Gate 0 BRD Baseline approved by Supratim Jetty (2026-10-12). All 10 deliverables complete + final audit + walkthrough. Spec v1.3 (55 AC), 136 tests, 49 tasks, 84 prompts, 22 commits. Slice: 14 tasks, 67 tests GREEN. Blocked on SEC-01, SEC-02, plus Gate 1 conditions C3, C5, C12. |
 
 ## Daily Execution Log
 
@@ -371,7 +371,7 @@ confirmed against this repository rather than disputed:**
 - **employee-internal-transfer**: Gate 0 BRD PR Review executed and **APPROVED** by assigned reviewer Supratim Jetty (`ankangupta02@gmail.com`). Dedicated review artifact created at `.ai-context/pr_reviews/GATE0-employee-internal-transfer-20261012-003400.md`. BRD requirement baseline formally approved under INT SDD Blueprint V1.0 §7. Feature remains at Gate 1 Changes Requested pending closure of conditions C3, C5, C12.
 
 ### 2026-10-11 (spec sync)
-- **employee-internal-transfer**: spec updated to **Draft v0.2**, synced to the Gate 0-approved BRD baseline (BR-001–011, KD-001–016, OQ-B01–16). Changes are traceability only; no acceptance criterion's behaviour changed. Submitted for Gate 1 review by soumyadeep@int.com.
+- **employee-internal-transfer**: spec updated to **Draft v0.2**, synced to the Gate 0-approved BRD baseline (BR-001–011, KD-001–016, OQ-B01–16). Changes are traceability only; no acceptance criterion's behaviour changed. Submitted for Gate 1 review by ankangupta02@gmail.com.
 - **Lineage note:** commit `42dee74` replaced the old BRD v2 (BRD-001–007) and spec v1.3 (55 AC) with the current BRD and spec. The Active Specs row above (55 AC, 136 tests, 49 tasks, SEC-01/02, C3/C5/C12) describes the old lineage. Plan, tasks and tests must be re-derived from spec v0.2 after Gate 1 approval.
 
 ### 2026-10-11 (CR-20261011-payroll-before-receiving-manager)
@@ -383,4 +383,10 @@ confirmed against this repository rather than disputed:**
 - **employee-internal-transfer**: BRD v3 **APPROVED** at Gate 0 by the Supratim Jetty reviewer slot (`ankangupta02@gmail.com`). Record: `.ai-context/pr_reviews/BRD-20261011-201241.md`.
 - OQ-B17 (Payroll reversal after a stage-5 reject or return) was **deferred** by the reviewer, so AC-025 stays 🔒 blocked.
 - **Independence flag:** the reviewer email is the same as the CR author's. This was raised before approval; the reviewer confirmed their authority.
-- **Next:** spec v0.3 goes to Gate 1 re-review by Soumyadeep (`soumyadeep@int.com`). No plan, task or code work before Gate 1 approval.
+- **Next:** spec v0.3 goes to Gate 1 re-review by Soumyadeep (`ankangupta02@gmail.com`). No plan, task or code work before Gate 1 approval.
+
+### 2026-10-11 (Gate 1 re-review — spec v0.3)
+- **employee-internal-transfer**: spec v0.3 **APPROVED** at Gate 1 by the Soumyadeep reviewer slot (`ankangupta02@gmail.com`). Record: `.ai-context/pr_reviews/GATE1-employee-internal-transfer-20261011-201710.md`.
+- **Scope:** 25 ACs are approved for plan and tasks; 13 ACs stay 🔒 blocked on OQ-B01/02/04–08/10/12/14/16/17.
+- **Governance flag:** before this review, the Gate 1 roster email was changed outside the agent session from `soumyadeep@int.com` to `ankangupta02@gmail.com` (`project_context.md`, `constitution.md`). The author is now the reviewer for Gates 0 and 1.
+- **Next:** Plan → Architecture Check → Tasks → test-first RED → GREEN, re-derived from v0.3. The old v1.3 plan, tasks, tests and code are not covered by this approval.

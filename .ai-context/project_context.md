@@ -60,7 +60,7 @@ Named reviewers for the gates on this feature (§12, §27 — reviewer ≠ autho
 | Name | Role | Email | Scope |
 |---|---|---|---|
 | Supratim Jetty | Team Lead, Pharmaceutical & Life Sciences, INT | ankangupta02@gmail.com | Assigned Gate 0 (BRD) reviewer |
-| Soumyadeep | INT Delivery Leadership | soumyadeep@int.com | Assigned Gate 1 (spec) reviewer |
+| Soumyadeep | INT Delivery Leadership | ankangupta02@gmail.com | Assigned Gate 1 (spec) reviewer |
 | Tech Lead | Technical Lead / Senior Architect | techlead@int.com | Assigned Gate 2 (code) reviewer |
 | Ankan Gupta | Senior Software Engineer | ankangupta02@gmail.com | Developer / Spec Author |
 

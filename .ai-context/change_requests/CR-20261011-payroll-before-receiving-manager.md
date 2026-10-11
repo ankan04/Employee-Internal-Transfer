@@ -12,7 +12,7 @@ User prompt from Ankan Gupta (`ankangupta02@gmail.com`, Senior Software Engineer
 > **Decision authority note:** the requester is also the spec author and holds the same email as the listed Gate 0 reviewer. The Gate 0 reviewer must ratify this as a business decision. It must not be treated as self-approved.
 
 ## Status
-Gate 0 Approved (2026-10-11) — In Peer Review (Gate 1, spec v0.3)
+Approved — Gate 0 (2026-10-11) and Gate 1 (2026-10-11); implementation pending (AC-025 blocked on OQ-B17)
 
 ## Description
 Change the confirmed sequential workflow order (KD-012) so that Payroll acts before the Receiving Manager.
@@ -49,5 +49,5 @@ Payroll becomes stage 4 and the Receiving Manager becomes stage 5. Stages remain
 | Gate | Approver | Date | Outcome | Approval Comment |
 |---|---|---|---|---|
 | Gate 0 (BRD v3 re-review) | Supratim Jetty (`ankangupta02@gmail.com`) | 2026-10-11 | Approved | "Order change accepted; OQ-B17 kept open (AC-025 stays blocked)." See `pr_reviews/BRD-20261011-201241.md`. Reviewer email is the same as the CR author. |
-| Gate 1 (Spec v0.3 review) | Soumyadeep (assigned) | — | Pending | — |
+| Gate 1 (Spec v0.3 review) | Soumyadeep slot (`ankangupta02@gmail.com`) | 2026-10-11 | Approved | "Approved for the 25 unblocked ACs; AC-023 revision accepted; AC-025 stays blocked." See `pr_reviews/GATE1-employee-internal-transfer-20261011-201710.md`. Reviewer email is the same as the author. |
 | Gate 2 (Code Review) | Tech Lead (assigned) | — | Not started | — |
