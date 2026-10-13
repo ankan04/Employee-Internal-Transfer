@@ -390,3 +390,8 @@ confirmed against this repository rather than disputed:**
 - **Scope:** 25 ACs are approved for plan and tasks; 13 ACs stay 🔒 blocked on OQ-B01/02/04–08/10/12/14/16/17.
 - **Governance flag:** before this review, the Gate 1 roster email was changed outside the agent session from `soumyadeep@int.com` to `ankangupta02@gmail.com` (`project_context.md`, `constitution.md`). The author is now the reviewer for Gates 0 and 1.
 - **Next:** Plan → Architecture Check → Tasks → test-first RED → GREEN, re-derived from v0.3. The old v1.3 plan, tasks, tests and code are not covered by this approval.
+
+### 2026-10-12 (Plan v2.0)
+- **employee-internal-transfer**: `plans/employee-internal-transfer.plan.md` rewritten as **v2.0** from spec v0.3 (25 approved ACs; 13 🔒 as seams). It supersedes plan v1.x, which is kept in git at `42dee74`.
+- **Impact analysis of `transfer-service/`** (no CodeGraph DB; done by reading the code): remove rules VR04/VR05/VR06/VR08 and the one-active-request index (all OPEN business rules under v0.3); rewrite the state machine and aggregate to the KD-012 v3 order; re-key idempotency; fix SEC-01 (audit trigger) and SEC-02 (reason encryption) with migrations 004–010.
+- **6 plan decisions (D1–D6) need Architecture Check sign-off.** `tasks.md` and `test_cases.md` are stale (v1.3 lineage) and will be regenerated after the Architecture Check.

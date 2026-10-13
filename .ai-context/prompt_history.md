@@ -48,3 +48,8 @@
 - **User Prompt:** `/int-pr-gate-workflow` → "ankangupta02@gmail.com is authorised to do this" → Decision: Approve
 - **Action:** Pre-check: the Gate 1 roster email (Soumyadeep) had been changed outside the session to ankangupta02@gmail.com in `project_context.md` and `constitution.md`, so it now matches the Git email. Flagged the reviewer ≠ author conflict; the user asserted authority and approved. Recorded **APPROVED** in `pr_reviews/GATE1-employee-internal-transfer-20261011-201710.md`, limited to the 25 unblocked ACs; 13 🔒 ACs stay blocked. Synced the spec header, CR record, `status.md` and `dashboard.html`.
 - **Status:** Completed — next stage: Plan (from spec v0.3)
+
+## [2026-10-12] Plan Generation — employee-internal-transfer v2.0
+- **User Prompt:** "riht now." (start the Plan after Gate 1 approval)
+- **Action:** Pre-development check of `pr_reviews/GATE1-employee-internal-transfer-20261011-201710.md` (25 ACs approved, 13 🔒). Impact analysis of `transfer-service/` by reading the code (no `codegraph.sqlite`). Rewrote `plans/employee-internal-transfer.plan.md` as v2.0 (supersedes v1.x; preserved in git at 42dee74). The plan lists 6 decisions (D1–D6) for Architecture Check and ADR candidates 004–006. No code was written.
+- **Status:** Completed — awaiting Architecture Check before tasks
